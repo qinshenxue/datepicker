@@ -1,0 +1,141 @@
+.datepicker * {
+    box-sizing: border-box;
+    font-size: 14px;
+}
+
+.datepicker {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    width: 280px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    background: #fff;
+}
+
+.datepicker .top {
+    text-align: center;
+}
+
+.datepicker .body {
+    width: 100%;
+}
+
+.datepicker .bottom {
+    padding-top: 5px;
+    text-align: center;
+}
+
+.datepicker .cell {
+    width: 1%;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #eee;
+    cursor: pointer;
+}
+
+.datepicker .cell.selected {
+    border: 1px solid #ff7f00;
+    background: #ff7f00;
+    color: #fff;
+}
+
+.datepicker .week-cell {
+    border: 0;
+    color: #888;
+}
+
+.datepicker .prev-month,
+.datepicker .next-month {
+    color: #ccc;
+    border: 1px solid #f2f2f2;
+}
+
+.datepicker .curr-month {
+    background: #f6f6f6;
+}
+
+.datepicker .prev-month:hover,
+.datepicker .curr-month:hover,
+.datepicker .next-month:hover {
+    position: relative;
+    border: 1px solid #ff7f00;
+    z-index: 2;
+}
+
+.datepicker .btn-clear {
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    margin: 0 5px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    background: #ff7f00;
+    cursor: pointer;
+}
+
+.datepicker-select {
+    position: relative;
+    float: left;
+    width: 50%;
+}
+
+.datepicker-select:after {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    width: 0;
+    height: 0;
+    margin-top: -2.5px;
+    border-top: 5px solid #aaa;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    content: '';
+}
+
+.datepicker-select-selected {
+    position: relative;
+    width: 100%;
+    height: 36px;
+    padding-right: 20px;
+    line-height: 36px;
+    text-align: center;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.datepicker-select-option {
+    position: absolute;
+    top: 35px;
+    left: 0;
+    display: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    border: 1px solid #ddd;
+    background: #fff;
+    z-index: 9;
+}
+
+.datepicker-select-option li {
+    float: left;
+    width: 50%;
+    height: 30px;
+    line-height: 30px;
+    color: #666;
+    font-size: 13px;
+    text-align: center;
+    list-style: none;
+    cursor: pointer;
+}
+
+.datepicker-select-option li:hover {
+    background: #eee;
+}
+
+.datepicker-select-month {
+    margin-left: -1px;
+}
+
