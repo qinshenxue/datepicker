@@ -50,9 +50,7 @@
                     </div>\
             </div>';
 
-    dom = dom.replace('{{yearRange}}', function ($) {
-        return getYearRange();
-    });
+    dom = dom.replace('{{yearRange}}', getYearRange());
 
     var $datepicker = $(dom).appendTo(document.body);
 
