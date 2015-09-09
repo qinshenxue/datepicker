@@ -93,10 +93,12 @@
     });
 
 
-    $(document.body).on('click', function (e) {
+    $(document).on('mouseup', function (e) {
         var target = $(e.target);
-        if (target.closest('.datepicker').length == 0 && !target.is($datepicker.bind)) {
-            $datepicker.hide();
+        if ($datepicker.instance) {
+            if (target.closest('.datepicker').length == 0 && !target.is($datepicker.bind)) {
+                $datepicker.hide();
+            }
         }
     });
 
@@ -183,6 +185,7 @@
 
     $.fn.datepicker = function () {
         var ele = $(this);
+        $datepicker.instance = true;
         ele.on({
             focus: function (e) {
                 var me = $(this);
