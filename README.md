@@ -1,5 +1,7 @@
 # datepicker
 日期选择控件，依赖jquery，代码简单，小巧，只提供最基本的功能，可以自己进行二次开发，自定义样式，保持更新。
+### 演示
+[github演示地址](http://qinshenxue.github.io/datepicker/)
 
 ### 需求
 1. 点击输入框显示选择日期界面，点击具体日期确认选择，界面隐藏
