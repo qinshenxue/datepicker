@@ -78,25 +78,26 @@
         $(this).addClass('selected');
         var value = $(this).data('value');
         var arr = value.split('-');
-        $datepicker.value = {
+        $datepicker._value = {
             year: arr[0] - 0,
             month: arr[1] - 0,
             day: arr[2] - 0
         };
-        $datepicker.bind.val(value);
+        $datepicker._bind.val(value);
         $datepicker.hide();
 
     }).on('click', '.btn-clear', function () {
         // 确定选择
-        $datepicker.bind.val('');
+        $datepicker._bind.val('');
         $datepicker.hide();
     });
 
 
     $(document).on('mouseup', function (e) {
         var target = $(e.target);
-        if ($datepicker.instance) {
-            if (target.closest('.datepicker').length == 0 && !target.is($datepicker.bind)) {
+        console.log($datepicker);
+        if ($datepicker._instance) {
+            if (target.closest('.datepicker').length == 0 && !target.is($datepicker._bind)) {
                 $datepicker.hide();
             }
         }
@@ -133,8 +134,8 @@
             });
         }
 
-        if ($datepicker.value.year == year && $datepicker.value.month == month) {
-            dates[day + $datepicker.value.day - 2]['class'] += ' selected';
+        if ($datepicker._value.year == year && $datepicker._value.month == month) {
+            dates[day + $datepicker._value.day - 2]['class'] += ' selected';
         }
 
         if (dates.length % 7 > 0) {
@@ -185,7 +186,7 @@
 
     $.fn.datepicker = function () {
         var ele = $(this);
-        $datepicker.instance = true;
+        $datepicker._instance = true;
         ele.on({
             focus: function (e) {
                 var me = $(this);
@@ -202,8 +203,8 @@
                 } else {
                     arr = v.split('-');
                 }
-                $datepicker.bind = ele;
-                $datepicker.value = {
+                $datepicker._bind = ele;
+                $datepicker._value = {
                     year: arr[0] - 0,
                     month: arr[1] - 0,
                     day: arr[2] - 0
