@@ -95,7 +95,6 @@
 
     $(document).on('mouseup', function (e) {
         var target = $(e.target);
-        console.log($datepicker);
         if ($datepicker._instance) {
             if (target.closest('.datepicker').length == 0 && !target.is($datepicker._bind)) {
                 $datepicker.hide();
@@ -105,28 +104,29 @@
 
     function getDatesOfMonth(year, month) {
         var dates = [];
+        // 初始化为month第一天的日期
         var date = new Date(year, month - 1, 1);
         var day = date.getDay();
         if (day == 0) {
             day = 7;
         }
 
-        date = new Date(year, month - 2, 1);
-        var prevYear = date.getFullYear();
-        var prevMonth = date.getMonth() + 1;
-        for (var i = day - 2; i >= 0; i--) {
-            date.setDate(-i);
-            dates.push({
-                'value': formatDate(prevYear, prevMonth, i),
-                'date': date.getDate(),
-                'class': 'prev-month'
-            });
+        // 当月第一天不是星期一才会显示上月的部分日期
+        if (day > 1) {
+            // 上月最后一天
+            date = new Date(year, month - 1, 0);
+            var prevDate = date.getDate();
+            for (var i = day - 2; i >= 0; i--) {
+                dates.push({
+                    'value': formatDate(date.getFullYear(), date.getMonth() + 1, prevDate - i),
+                    'date': prevDate - i,
+                    'class': 'prev-month'
+                });
+            }
         }
 
         date = new Date(year, month, 0);
-        var range = date.getDate();
-
-        for (var i = 1, j = range; i <= j; i++) {
+        for (var i = 1, j = date.getDate(); i <= j; i++) {
             dates.push({
                 'value': formatDate(year, month, i),
                 'date': i,
@@ -134,17 +134,17 @@
             });
         }
 
+        // 对于$datepicker选中的日期要增加选中的样式
         if ($datepicker._value.year == year && $datepicker._value.month == month) {
             dates[day + $datepicker._value.day - 2]['class'] += ' selected';
         }
 
+        // 上月日期总数+当月日期总数之和不为7的倍数才会显示下月的部分日期
         if (dates.length % 7 > 0) {
             date = new Date(year, month, 1);
-            var nextYear = date.getFullYear();
-            var nextMonth = date.getMonth() + 1;
             for (var i = 1, j = 7 - dates.length % 7; i <= j; i++) {
                 dates.push({
-                    'value': formatDate(nextYear, nextMonth, i),
+                    'value': formatDate(date.getFullYear(), date.getMonth() + 1, i),
                     'date': i,
                     'class': 'next-month'
                 });
