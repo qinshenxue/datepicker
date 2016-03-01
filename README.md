@@ -1,14 +1,9 @@
 # datepicker
 > 日期选择控件，依赖jquery，代码简单，小巧，只提供最基本的功能，可以自己进行二次开发，自定义样式，保持更新。
 
-## 最后更新日期 2015-10-21
-
-
 ### 演示
 - 日期选择
 [http://www.qinshenxue.com/demo/datepicker/index.html](http://www.qinshenxue.com/demo/datepicker/index.html)
-
-
 
 ### 配置
 
@@ -27,9 +22,9 @@
 
 ### 示例
 ```html
-<link rel="stylesheet" type="text/css" href="datepicker.css">
+<link rel="stylesheet" type="text/css" href="datepicker.min.css">
 <script src="jquery.js"></script>
-<script src="datepicker.js"></script>
+<script src="datepicker.min.js"></script>
 <input type="text" id="test">
 <script>
 $('#test').datepicker();
