@@ -36,4 +36,4 @@ $('#test').datepicker();
 </script>
 ```
 ### 效果
-![](readme/api-datepicker-1.gif)
+![](readme/demo.gif)
