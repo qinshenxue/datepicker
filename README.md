@@ -1,16 +1,29 @@
 # datepicker
-日期选择控件，依赖jquery，代码简单，小巧，只提供最基本的功能，可以自己进行二次开发，自定义样式，保持更新。
+> 日期选择控件，依赖jquery，代码简单，小巧，只提供最基本的功能，可以自己进行二次开发，自定义样式，保持更新。
+
+## 最后更新日期 2015-10-21
+
+
 ### 演示
-[github演示地址](http://qinshenxue.github.io/datepicker/)
+- 日期选择
+[http://www.qinshenxue.com/demo/datepicker/index.html](http://www.qinshenxue.com/demo/datepicker/index.html)
 
-### 需求
-1. 点击输入框显示选择日期界面，点击具体日期确认选择，界面隐藏
-2. 支持ie8+
-3. 提供基本功能，减少配置项，方便在源码上进行二次开发
 
-### 设计
-1. 基于jQuery
-2. 多个日期选择只初始化一次日期选择的dom结构
+
+### 配置
+
+#### weekStart
+- 类型：Number
+- 默认：0（星期日）
+- 解释：定义周从星期几开始
+- 可能的值：0（星期日）、1（星期一）、2、3、4、5、6
+
+#### lang
+- 类型：String
+- 默认：zh_CN（中文）
+- 解释：国际化语言包
+- 可能的值：可自己添加
+
 
 ### 示例
 ```html

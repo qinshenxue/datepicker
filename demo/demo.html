@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="../dist/datepicker.min.css">
+</head>
+<body>
+<style>
+    body {
+        padding: 100px;
+        font-family: '微软雅黑', YaHei, tahoma, arial, "Hiragino Sans GB", \5b8b\4f53;
+        background: #eee;
+    }
+</style>
+
+<input type="text" id="test1"><input type="text" id="test2">
+
+<script src="../jquery.js"></script>
+<script src="../dist/datepicker.min.js"></script>
+
+<script>
+
+    $.fn.datepicker.lang["en_US"] = {
+        yearText: '',
+        monthText: '',
+        clearText: 'Clear',
+        week: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa']
+    };
+    console.log($('#test1').datepicker({
+        lang:'en_US'
+    }));
+    console.log($('#test2').datepicker());
+</script>
+
+</body>
+</html>

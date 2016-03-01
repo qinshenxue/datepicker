@@ -20,28 +20,28 @@
 
 .datepicker .body {
     width: 100%;
+    border-spacing: 0;
 }
 
 .datepicker .bottom {
-    padding-top: 5px;
+    padding: 8px 0 5px;
     text-align: center;
 }
 
 .datepicker .cell {
-    width: 1%;
-    height: 30px;
+    width: 40px;
+    height: 36px;
     text-align: center;
-    border: 1px solid #eee;
     cursor: pointer;
 }
 
 .datepicker .cell.selected {
-    border: 1px solid #ff7f00;
-    background: #ff7f00;
-    color: #fff;
+    color: #007FC3;
+    font-weight: bold;
 }
 
 .datepicker .week-cell {
+    height: 40px;
     border: 0;
     color: #888;
 }
@@ -49,30 +49,26 @@
 .datepicker .prev-month,
 .datepicker .next-month {
     color: #ccc;
-    border: 1px solid #f2f2f2;
 }
 
 .datepicker .curr-month {
-    background: #f6f6f6;
+    color: #555;
 }
 
 .datepicker .prev-month:hover,
 .datepicker .curr-month:hover,
 .datepicker .next-month:hover {
-    position: relative;
-    border: 1px solid #ff7f00;
-    z-index: 2;
+    background: #ededed;
 }
 
 .datepicker .btn-clear {
     display: inline-block;
     width: 80px;
     height: 30px;
-    margin: 0 5px;
     line-height: 30px;
     text-align: center;
     color: #fff;
-    background: #ff7f00;
+    background: #007FC3;
     cursor: pointer;
 }
 
@@ -117,6 +113,8 @@
     border: 1px solid #ddd;
     background: #fff;
     z-index: 9;
+    box-shadow: 0 4px 8px #e5e5e5;
+    -webkit-box-shadow: 0 4px 8px #e5e5e5;
 }
 
 .datepicker-select-option li {

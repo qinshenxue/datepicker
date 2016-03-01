@@ -1,0 +1,21 @@
+{
+  "name": "datepicker",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "",
+  "repository": {
+    "type": "git",
+    "url": "https://git.oschina.net/qinshenxue/datepicker"
+  },
+  "author": {
+    "name": "qinshenxue",
+    "email": "qinshenxue@qinshenxue.com"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^1.5.3",
+    "gulp-clean-css": "^2.0.2"
+  }
+}
