@@ -5,11 +5,12 @@
         var pos = ele.offset();
 
         var defaults = {
-            weekStart: 0,
-            lang: 'zh_CN'
+            weekStart: 1,
+            yearRange: [-6, 7],
+            language: 'zh_CN'
         };
         $.extend(defaults, options);
-        var langPack = DatePicker.lang[defaults.lang];
+        var languagePack = DatePicker.language[defaults.language];
 
         var tpl = '<div class="datepicker" id="datepicker">\
                     <div class="top">\
@@ -54,21 +55,27 @@
         var tplData = {
             yearRange: function getYearRange() {
                 var now = new Date();
-                var rangeStart = now.getFullYear() - 5;
+                var startYear = now.getFullYear() + defaults.yearRange[0];
+                var rangeSpan = defaults.yearRange[1] - defaults.yearRange[0];
+                var rows = Math.ceil(rangeSpan / 2);
                 var html = [];
-                for (var i = 0; i < 12; i++) {
-                    html.push('<li data-year="' + (rangeStart + i) + '">' + (rangeStart + i) + '</li>');
+                for (var i = 0; i < rows; i++) {
+                    html.push('<li data-year="' + (startYear + i) + '">' + (startYear + i) + '</li>');
+                    html.push('<li data-year="' + (startYear + i + rows) + '">' + (startYear + i + rows) + '</li>');
+                }
+                if (rangeSpan % 2 != 0) {
+                    html.pop();
                 }
                 return html.join('');
             }(),
             weekHead: function getWeekHead() {
                 var html = [];
                 for (var i = defaults.weekStart; i < defaults.weekStart + 7; i++) {
-                    html.push('<td class="cell week-cell">' + langPack.week[i % 7] + '</td>');
+                    html.push('<td class="cell week-cell">' + languagePack.week[i % 7] + '</td>');
                 }
                 return html.join('');
             }(),
-            clearText: langPack.clearText
+            clearText: languagePack.clearText
         };
 
         tpl = tpl.replace(/\{\{(\w+)\}\}/g, function (m, c) {
@@ -176,8 +183,8 @@
                     });
                 }
             }
-            $datepicker.find('.datepicker-select-year .datepicker-select-selected').data('year', year).text(year + langPack.yearText);
-            $datepicker.find('.datepicker-select-month .datepicker-select-selected').data('month', month).text(month + langPack.monthText);
+            $datepicker.find('.datepicker-select-year .datepicker-select-selected').data('year', year).text(year + languagePack.yearText);
+            $datepicker.find('.datepicker-select-month .datepicker-select-selected').data('month', month).text(month + languagePack.monthText);
             $datepicker.find('.body tbody').html(getDatesDom(dates));
         }
 
@@ -223,7 +230,7 @@
 
         return $datepicker;
     };
-    DatePicker.lang = {
+    DatePicker.language = {
         zh_CN: {
             yearText: '年',
             monthText: '月',
@@ -233,6 +240,6 @@
     };
 
     $.fn.datepicker = DatePicker;
-    $.fn.datepicker.lang = DatePicker.lang;
+    $.fn.datepicker.language = DatePicker.language;
 })(jQuery);
 
